@@ -19,8 +19,8 @@ const transporter = nodemailer.createTransport({
 var mailOptions = {
     from: process.env.EMAILFROM,
     to: '', // email destinatário 
-    subject: 'Teste envio automatizado',
-    text: 'Te amo, bu'
+    subject: '', //assunto
+    text: '' // conteúdo
 }
 
 function enviaEmail() {
