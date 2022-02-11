@@ -16,15 +16,19 @@ const transporter = nodemailer.createTransport({
 
 var mailOptions = {
     from: process.env.EMAILFROM,
-    to: process.env.EMAILTO,
-    subject: '',
-    text: ''
+    to: '', // email destinatário 
+    subject: 'Teste envio automatizado',
+    text: 'Te amo, bu'
 }
 
-transporter.sendMail(mailOptions, (error, info) => {
-    if(error) {
-        console.log(error)
-    }else {
-        console.log(`Email sent: ${info.response}`)
-    }
-})
+function enviaEmail() {
+    transporter.sendMail(mailOptions, (error, info) => {
+        if(error) {
+            console.log(error)
+        }else {
+            console.log(`Email sent: ${info.response}`)
+        }
+    })
+}
+
+enviaEmail()
