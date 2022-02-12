@@ -33,7 +33,7 @@ function enviaEmail() {
     })
 }
 
-schedule.scheduleJob('* * * * *', () => { // a cada minuto
+schedule.scheduleJob('30 7 1 1-12 *', () => { // início de mês as 07:30
     enviaEmail()
     console.log('email enviado :)')
 })
