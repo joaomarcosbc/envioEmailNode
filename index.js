@@ -9,7 +9,7 @@ var auth = {
 }
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp-mail.outlook.com',
+    host: 'smtp-mail.outlook.com', // configuração para servidor de envio outlook
     port: 587,
     secure: false,
     auth: auth
@@ -18,9 +18,9 @@ const transporter = nodemailer.createTransport({
 
 var mailOptions = {
     from: process.env.EMAILFROM,
-    to: 'joaombcerqueira@gmail.com', // email destinatário 
-    subject: 'Teste Schedule', //assunto
-    text: 'Oi, funcionou?' // conteúdo
+    to: '', // email destinatário 
+    subject: '', //assunto
+    text: '' // conteúdo
 }
 
 function enviaEmail() {
