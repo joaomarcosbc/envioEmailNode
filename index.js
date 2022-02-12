@@ -18,9 +18,9 @@ const transporter = nodemailer.createTransport({
 
 var mailOptions = {
     from: process.env.EMAILFROM,
-    to: '', // email destinatário 
-    subject: '', //assunto
-    text: '' // conteúdo
+    to: 'joaombcerqueira@gmail.com', // email destinatário 
+    subject: 'Teste Schedule', //assunto
+    text: 'Oi, funcionou?' // conteúdo
 }
 
 function enviaEmail() {
@@ -33,4 +33,8 @@ function enviaEmail() {
     })
 }
 
-enviaEmail()
+schedule.scheduleJob('* * * * *', () => { // a cada minuto
+    enviaEmail()
+    console.log('email enviado :)')
+})
+
