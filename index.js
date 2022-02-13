@@ -15,26 +15,19 @@ const transporter = nodemailer.createTransport({
     auth: auth
 })
 
-
 var mailOptions = {
     from: process.env.EMAILFROM,
     to: '', // email destinatário 
-    subject: '', //assunto
-    text: '' // conteúdo
+    subject: 'teste', //assunto
+    text: 'teste' // conteúdo
 }
 
-function enviaEmail() {
-    transporter.sendMail(mailOptions, (error, info) => {
-        if(error) {
-            console.log(error)
-        }else {
-            console.log(`Email sent: ${info.response}`)
-        }
-    })
+async function enviaEmail() {
+    let enviaEmail = await transporter.sendMail(mailOptions)
+    console.log('Email sent: ', enviaEmail.response)
 }
 
-schedule.scheduleJob('30 7 1 1-12 *', () => { // início de mês as 07:30
-    enviaEmail()
-    console.log('email enviado :)')
+schedule.scheduleJob('30 7 1 1-12 *', async () => { // início de mês as 07:30
+    await enviaEmail()
+    console.log('email enviado')    
 })
-
