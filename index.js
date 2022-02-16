@@ -27,7 +27,7 @@ async function enviaEmail() {
     console.log('Email sent: ', enviaEmail.response)
 }
 
-schedule.scheduleJob('30 7 1 1-12 *', async () => { // início de mês as 07:30
+schedule.scheduleJob('30 7 1 * *', async () => { // início de mês as 07:30
     await enviaEmail()
     console.log('email enviado')    
 })
